@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evaluate - Somali Hospital Evaluation Portal</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1>Evaluate a Hospital</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="hospitals.html">Hospitals</a>
+      <a href="evaluation.html">Evaluate</a>
+      <a href="signup.html">Sign Up</a>
+      <a href="login.html">Login</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <form id="evaluationForm">
+    <label for="hospital">Select Hospital:</label>
+    <select id="hospital" required>
+      <option value="">--Select--</option>
+      <option value="Kalkaal Hospital">Kalkaal Hospital</option>
+      <option value="Shafi Hospital">Shafi Hospital</option>
+      <option value="Digfeer Hospital">Digfeer Hospital</option>
+      <option value="Somali Sudanese Hospital">Somali Sudanese Hospital</option>
+      <option value="Banaadir Hospital">Banaadir Hospital</option>
+    </select>
+
+    <label>Doctor Professionalism:</label>
+    <div class="rating" data-aspect="doctor">
+      <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+    </div>
+
+    <label>Waiting Time:</label>
+    <div class="rating" data-aspect="waiting">
+      <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+    </div>
+
+    <label>Facility Cleanliness:</label>
+    <div class="rating" data-aspect="cleanliness">
+      <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+    </div>
+
+    <label>Treatment Effectiveness:</label>
+    <div class="rating" data-aspect="treatment">
+      <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+    </div>
+
+    <label>Staff Friendliness:</label>
+    <div class="rating" data-aspect="staff">
+      <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+    </div>
+
+    <button type="submit" class="btn">Submit Evaluation</button>
+    <button type="reset" class="btn btn-reset">Reset</button>
+    <p id="eval-message"></p>
+  </form>
+</main>
+
+<footer>
+  <p>&copy; 2026 Somali Hospital Evaluation Portal | Contact: info@somalihospitals.com</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

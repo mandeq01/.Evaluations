@@ -1,0 +1,23 @@
+/* Reset and basic */
+* {margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif;}
+body {background:#f5f5f5; color:#333;}
+.container {width:90%; max-width:1100px; margin:0 auto;}
+header, footer {background:#2a9d8f; color:#fff; padding:15px 0;}
+header h1, footer p {text-align:center;}
+nav {text-align:center; margin-top:10px;}
+nav a {color:#fff; text-decoration:none; margin:0 10px;}
+nav a:hover {text-decoration:underline;}
+main {padding:20px 0;}
+h2 {margin-bottom:10px; color:#264653;}
+.btn {background:#e76f51; color:#fff; padding:10px 20px; text-decoration:none; display:inline-block; margin:5px 0; border:none; cursor:pointer;}
+.btn:hover {background:#f4a261;}
+.btn-reset {background:#264653;}
+.hero {text-align:center; margin-bottom:30px;}
+.hero-buttons .btn {margin:0 5px;}
+.stats, .info, .hospital-list, form {background:#fff; padding:20px; margin-bottom:20px; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.1);}
+.hospital-card {border:1px solid #ddd; padding:15px; margin-bottom:15px; border-radius:8px; background:#fafafa;}
+.rating span {font-size:25px; cursor:pointer; color:#ccc; margin-right:5px;}
+.rating span.selected, .rating span:hover, .rating span.hover {color:#f4a261;}
+input, select, textarea {width:100%; padding:8px; margin-bottom:15px; border:1px solid #ccc; border-radius:5px;}
+textarea {resize:vertical;}
+p#eval-message, p#signup-message, p#login-message, p#contact-feedback {color:#e76f51; font-weight:bold;}
