@@ -1,4 +1,4 @@
-// ===== USERS & EVALUATIONS STORAGE =====
+// ===== STORAGE =====
 const users = JSON.parse(localStorage.getItem('users')) || [];
 const evaluations = JSON.parse(localStorage.getItem('evaluations')) || [];
 let loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) || null;
@@ -52,19 +52,22 @@ if(evalForm){
             localStorage.setItem('evaluations', JSON.stringify(evaluations));
 
             evalMessage.textContent = 'Evaluation submitted successfully!';
-            evalForm.reset();
-
-            ratingDivs.forEach(function(div){
-                div.dataset.value = 0;
-                div.querySelectorAll('span').forEach(function(s){ s.classList.remove('selected'); });
-            });
-
+            resetEvaluationForm();
             updateStats();
         });
     }
 }
 
-// ===== UPDATE HOME & HOSPITAL STATS =====
+// ===== RESET EVALUATION FORM =====
+function resetEvaluationForm(){
+    evalForm.reset();
+    ratingDivs.forEach(function(div){
+        div.dataset.value = 0;
+        div.querySelectorAll('span').forEach(function(s){ s.classList.remove('selected'); });
+    });
+}
+
+// ===== UPDATE STATS =====
 function updateStats(){
     const total = evaluations.length;
     const last = total > 0 ? evaluations[total-1].hospital : 'None';
@@ -118,14 +121,12 @@ if(signupForm){
             return;
         }
 
-        // Name must be letters only
         const nameRegex = /^[A-Za-z\s]+$/;
         if(!nameRegex.test(name)){
             alert('Name must contain only letters and spaces');
             return;
         }
 
-        // Strong password validation
         const passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
         if(!passRegex.test(pass)){
             alert('Password must be 8+ chars, include uppercase, lowercase, number & special char');
@@ -160,7 +161,7 @@ if(loginForm){
             localStorage.setItem('loggedInUser', JSON.stringify(user));
             document.getElementById('login-message').textContent = `Login successful! Welcome ${user.name}`;
             loginForm.reset();
-            if(evalForm){ // show evaluation if login successful
+            if(evalForm){
                 evalForm.style.display = 'block';
                 evalMessage.textContent = `Welcome, ${loggedInUser.name}! You can submit an evaluation.`;
             }
@@ -180,7 +181,16 @@ if(contactForm){
         const email = document.getElementById('contact-email').value.trim();
         const msg = document.getElementById('contact-message').value.trim();
 
-        if(!name || !email || !msg){ alert('All fields required'); return; }
+        if(!name || !email || !msg){ 
+            alert('All fields required'); 
+            return; 
+        }
+
+        const nameRegex = /^[A-Za-z\s]+$/;
+        if(!nameRegex.test(name)){
+            alert('Name must contain only letters and spaces');
+            return;
+        }
 
         document.getElementById('contact-feedback').textContent = 'Thank you, your message has been sent!';
         contactForm.reset();
